@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <title>Trajek Line | Daftar Barang</title>
-<?php include('partials/title.php') ?>
+<?php include('partials2/title.php') ?>
 
 <body>
 	<!-- Page Preloder -->
-	<?php include('partials/preloader.php') ?>
+	<?php include('partials2/preloader.php') ?>
 
 	<!-- Header section -->
-<?php include('partials/header.php') ?>
+<?php include('partials2/header.php') ?>
 	
 	<!-- Page info -->
 	
@@ -360,9 +360,9 @@
 
 
 	<!-- Footer section -->
-	<?php include('partials/footer.php') ?>
+	<?php include('partials2/footer.php') ?>
 	<!-- Footer section end -->
-	<?php include('partials/modal.php') ?>
+	<?php include('partials2/modal.php') ?>
 
 	
 

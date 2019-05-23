@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <title>Trajek Line | Canon EOS 1DX</title>
-<?php include('partials/title.php')  ?>
+<?php include('partials2/title.php')  ?>
 <body style="background-color: #f5f5f5">
 	<!-- Page Preloder -->
 	<div id="preloder">
@@ -9,7 +9,7 @@
 	</div>
 
 	<!-- Header section -->
-	<?php include('partials/header.php')  ?>
+	<?php include('partials2/header.php')  ?>
 	<!-- Header section end -->
     <div class="page-top-info">
 		<div class="container">
@@ -165,16 +165,16 @@
 </div> 
 
 	<!-- Footer Start -->
-	<?php include('partials/footer.php')  ?>
+	<?php include('partials2/footer.php')  ?>
 	<!-- Footer End -->
 
 	<!-- Modal Start -->
-	<?php include('partials/modal.php') ?>
+	<?php include('partials2/modal.php') ?>
 	<!-- Modal End -->
 
 
 	<!--====== Javascripts & Jquery ======-->
-	<?php include('partials/js.php') ?>
+	<?php include('partials2/js.php') ?>
 
 	</body>
 </html>
