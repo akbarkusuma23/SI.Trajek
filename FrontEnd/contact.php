@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <title>Trajek Line | Kontak Kami</title>
-<?php include('partials/title.php') ?>
+<?php include('partials2/title.php') ?>
 <body>
 	<!-- Page Preloder -->
 	<div id="preloder">
@@ -9,7 +9,7 @@
 	</div>
 
 	<!-- Header section -->
-	<?php include('partials/header.php') ?>
+	<?php include('partials2/header.php') ?>
 	<!-- Header section end -->
 
 
@@ -184,14 +184,14 @@
 
 
 	<!-- Footer section -->
-	<?php include('partials/footer.php') ?>
+	<?php include('partials2/footer.php') ?>
 	<!-- Footer section end -->
-	 <?php include('partials/modal.php') ?>
+	 <?php include('partials2/modal.php') ?>
 
 
 
 	<!--====== Javascripts & Jquery ======-->
-	<?php include('partials/js.php') ?>
+	<?php include('partials2/js.php') ?>
 
 	</body>
 </html>
