@@ -206,11 +206,11 @@ class Karyawan extends CI_Controller
         $this->load->model('Pemesanan_model', 'pemesanan');
         $data['pemesanan'] = $this->pemesanan->getPemesanan();
         $data['merk'] = $this->db->get('tbbarang')->result_array();
-        $data['nama_dp'] = $this->db->get('tbdp')->result_array();
-        $data['tanggal'] = date("d-m-Y");
+        // $data['nama_dp'] = $this->db->get('tbdp')->result_array();
+        // $data['tanggal'] = date("d-m-Y");
 
         $this->form_validation->set_rules('id_pemesanan', 'id_pemesanan', 'required');
-        $this->form_validation->set_rules('nik', 'nik', 'required', 'required');
+        $this->form_validation->set_rules('nik', 'nik', 'required');
         $this->form_validation->set_rules('id_barang', 'id_barang', 'required');
         $this->form_validation->set_rules('tanggal_pengambilan', 'tanggal_pengambilan', 'required');
         $this->form_validation->set_rules('tanggal_pengembalian', 'tanggal_pengembalian', 'required');
@@ -231,7 +231,8 @@ class Karyawan extends CI_Controller
                 'tanggal_pengambilan' => $this->input->post('tanggal_pengambilan'),
                 'tanggal_pengembalian' => $this->input->post('tanggal_pengembalian'),
                 'tipe_pembayaran' => $this->input->post('tipe_pembayaran'),
-                'id_dp' => $this->input->post('id_dp'),
+                'konfirmasi' => 'ya'
+                // 'id_dp' => $this->input->post('id_dp'),
             ];
 
             $this->db->insert('tbpemesanan', $datas);
@@ -265,9 +266,9 @@ class Karyawan extends CI_Controller
             'nik' => $this->input->post('nik'),
             'id_barang' => $this->input->post('id_barang'),
             'tanggal_pengambilan' => $this->input->post('tanggal_pengambilan'),
-            'tanggal_pengembalain' => $this->input->post('tanggal_pengembalian'),
+            'tanggal_pengembalian' => $this->input->post('tanggal_pengembalian'),
             'tipe_pembayaran' => $this->input->post('tipe_pembayaran'),
-            'id_dp' => $this->input->post('id_dp'),
+            // 'id_dp' => $this->input->post('id_dp'),
         ];
         $where = array('id_pemesanan' => $this->input->post('id_pemesanan'));
         $this->db->where($where);
@@ -283,7 +284,7 @@ class Karyawan extends CI_Controller
     }
     public function transaksi()
     {
-        $data['title'] = 'Transaksi';
+        $data['title'] = 'Pengambilan';
         $data['karyawan'] = $this->db->get_where('tbkaryawan', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->model('Transaksi_model', 'transaksi');
@@ -293,7 +294,6 @@ class Karyawan extends CI_Controller
 
         $this->form_validation->set_rules('id_transaksi', 'id_transaksi', 'required');
         $this->form_validation->set_rules('id_pemesanan', 'id_pemesanan', 'required');
-        $this->form_validation->set_rules('nik', 'nik', 'required');
         $this->form_validation->set_rules('nip', 'nip', 'required');
         $this->form_validation->set_rules('bayar', 'bayar', 'required');
         $this->form_validation->set_rules('kembali', 'kembali', 'required');
@@ -308,7 +308,6 @@ class Karyawan extends CI_Controller
             $data = [
                 'id_transaksi' => htmlspecialchars($this->input->post('id_transaksi', true)),
                 'id_pemesanan' => htmlspecialchars($this->input->post('id_pemesanan', true)),
-                'nik' => htmlspecialchars($this->input->post('nik', true)),
                 'nip' => htmlspecialchars($this->input->post('nip', true)),
                 'bayar' => htmlspecialchars($this->input->post('bayar', true)),
                 'kembali' => htmlspecialchars($this->input->post('kembali', true)),
@@ -321,7 +320,7 @@ class Karyawan extends CI_Controller
     }
     public function edittransaksi($id_transaksi)
     {
-        $data['title'] = "Edit Transaksi";
+        $data['title'] = "Edit Pengambilan";
         $data['karyawan'] = $this->db->get_where('tbkaryawan', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->model('Transaksi_model', 'transaksi');
         $where = array('id_transaksi' => $id_transaksi);
@@ -342,7 +341,6 @@ class Karyawan extends CI_Controller
         $data = [
             'id_transaksi' => $this->input->post('id_transaksi'),
             'id_pemesanan' => $this->input->post('id_pemesanan'),
-            'nik' => $this->input->post('nik'),
             'nip' => $this->input->post('nip'),
             'bayar' => $this->input->post('bayar'),
             'kembali' => $this->input->post('kembali'),

@@ -5,9 +5,8 @@ class Pemesanan_model extends CI_Model
 {
     public function getPemesanan()
     {
-        $query = "SELECT id_pemesanan,tbpelanggan.nik,tbbarang.id_barang,tanggal_pesan, tanggal_pengambilan, 
-        tanggal_pengembalian, tbdp.id_dp from tbpemesanan join tbpelanggan on tbpemesanan.nik = tbpelanggan.nik 
-        join tbbarang on tbpemesanan.id_barang = tbbarang.id_barang join tbdp  on tbpemesanan.id_dp = tbdp.id_dp ";
+        $query = "SELECT * from tbpemesanan join tbpelanggan on tbpemesanan.nik = tbpelanggan.nik 
+        join tbbarang on tbpemesanan.id_barang = tbbarang.id_barang where konfirmasi = 'tidak'";
 
         return $this->db->query($query)->result_array();
     }

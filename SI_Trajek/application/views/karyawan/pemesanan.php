@@ -42,7 +42,7 @@
                                             <td><?= $b['tanggal_pengembalian']; ?></td>
                                             <td><?= $b['tipe_pembayaran']; ?></td>
                                             <td>
-                                                <a href="<?= base_url('karyawan/editpemesanan/' . $p['nik']); ?>" class=" badge badge-success">edit</a>
+                                                <a href="<?= base_url('karyawan/editpemesanan/' . $b['id_pemesanan']); ?>" class=" badge badge-success">edit</a>
                                                 <a onclick="return confirm(`Anda ingin hapus?`)" href="<?= base_url('karyawan/hapuspemesanan/' . $b['id_pemesanan']); ?>" class=" badge badge-danger">hapus</a>
                                                 <a href="<?= base_url('karyawan/konfirmasipemesanan/' . $b['id_pemesanan']); ?>" class=" badge badge-primary">konfirmasi</a>
                                             </td>
