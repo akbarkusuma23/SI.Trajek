@@ -16,7 +16,7 @@ function is_logged_in()
             'menu_id' => $menu_id
         ]);
 
-        if ($karyawanAccess->num_rows() < 1) {
+        if ($karyawanAccess->num_rows() > 1) {
             redirect('auth/blocked');
         }
     }
