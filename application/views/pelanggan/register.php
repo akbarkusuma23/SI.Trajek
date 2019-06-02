@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zxx">
-<?php include('partials2/title.php')  ?>
+<?php $this->load->view('templatepelanggan/title.php') ?>
 <body>
 	<!-- Page Preloder -->
 	<div id="preloder">
@@ -8,22 +8,21 @@
 	</div>
 
 	<!-- Header section -->
-	<?php include('partials2/header.php')  ?>
+    <?php $this->load->view('templatepelanggan/header.php') ?>
 	<!-- Header section end -->
 
     <!-- Page top info -->
     <div class="page-top-info">
         <div class="container">
-            <h3>Registrasi Akun</h3>
+            <center><h3>Registrasi Akun</h3></center>
             <div class="site-pagination">
-                <a href="./beranda.php">Beranda</a> /
-                <a href="./register.php">Registrasi Akun</a>
                 
             </div>
         </div>
     </div>
                 
                 <!-- Row -->
+            <form action="<?= base_url('index/register'); ?>" method="post" enctype="multipart/form-data">
                 <div class="row" style="margin: 40px 100px 40px">
                     <!-- Column -->
                     <div class="col-lg-4 col-xlg-3 col-md-5">
@@ -32,8 +31,9 @@
                         border-radius: 27px;
                         overflow: hidden;">
                             <div class="card-body">
-                                <center>  
-                                	<input id="foto" type="file" name="gambar" style="">
+                                <center>
+                                    <label>Upload Foto Profil</label>  
+                                	<input id="foto" type="file" required="" name="gambar" style="">
                                 	<div class="row text-center justify-content-md-center" > 
                                         </div>
                                 </center>
@@ -48,42 +48,43 @@
   overflow: hidden;">
                             <!-- Tab panes -->
                             <div class="card-body" style="padding-top: 10px">
-                                <form class="form-horizontal form-material">
-                                    <h3 style="text-align: right; margin-bottom: 20px; margin-right: 50px">Registrasi Akun </h3>
+                                
+                                    <h3 style="text-align: right; margin-bottom: 20px; margin-right: 50px">Registrasi </h3>
+                                    <?= $this->session->flashdata('message'); ?>
                                     <div class="input-form">
                                         <label class="col-md-12">Nama Lengkap</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Nama Lengkap" class="form-control form-control-line">
+                                            <input type="text" required="" name="nama" placeholder="Nama Lengkap" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     <div class="input-form">
                                         <label for="example-email" class="col-md-12">Email</label>
                                         <div class="col-md-12">
-                                            <input type="email" placeholder="E-mail" class="form-control form-control-line" name="example-email" id="example-email">
+                                            <input type="email" required="" placeholder="E-mail" class="form-control form-control-line" name="email" id="example-email">
                                         </div>
                                     </div>
                                     <div class="input-form">
                                         <label class="col-md-12">Password</label>
                                         <div class="col-md-12">
-                                            <input type="password" value="password" class="form-control form-control-line">
+                                            <input type="password" required="" name="password" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     <div class="input-form">
                                         <label class="col-md-12">Nomor Handphone</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Nomor Handphone" class="form-control form-control-line">
+                                            <input type="text" required="" name="nomor" placeholder="Nomor Handphone" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     <div class="input-form">
                                         <label class="col-md-12">NIK</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Nomor Induk Kependudukan" class="form-control form-control-line">
+                                            <input type="text" required="" name="nik" placeholder="Nomor Induk Kependudukan" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     <div class="input-form">
                                         <label class="col-md-12">Alamat</label>
                                         <div class="col-md-12">
-                                            <textarea rows="5" class="form-control form-control-line"></textarea>
+                                            <textarea rows="5" required="" name="alamat" class="form-control form-control-line"></textarea>
                                         </div>
                                     </div>
                                     
@@ -104,16 +105,16 @@
                     
 
 	<!-- Footer Start -->
-	<?php include('partials2/footer.php')  ?>
+    <?php $this->load->view('templatepelanggan/footer.php') ?>
 	<!-- Footer End -->
 
 	<!-- Modal Start -->
-	<?php include('partials2/modal.php') ?>
+    <?php $this->load->view('templatepelanggan/modal.php') ?>
 	<!-- Modal End -->
 
 
 	<!--====== Javascripts & Jquery ======-->
-	<?php include('partials2/js.php') ?>
+    <?php $this->load->view('templatepelanggan/js.php') ?>
 
 	</body>
 </html>

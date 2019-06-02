@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <title>Trajek Line | Kontak Kami</title>
-<?php include('partials2/title.php') ?>
+<?php $this->load->view('templatepelanggan//title.php') ?>
 <body>
 	<!-- Page Preloder -->
 	<div id="preloder">
@@ -9,7 +9,7 @@
 	</div>
 
 	<!-- Header section -->
-	<?php include('partials2/header.php') ?>
+		<?php $this->load->view('templatepelanggan//header.php') ?>
 	<!-- Header section end -->
 
 
@@ -96,10 +96,13 @@
                             <div class="card-body">
                                 <div class="contact-form" align="right">
 						<h3 style="margin-bottom: 20px;">Kritik & Saran</h3>
-						<input type="text" placeholder="Nama">
-						<input type="text" placeholder="E-mail">
-						<textarea placeholder="Message"></textarea>
+						<?= $this->session->flashdata('message'); ?>
+					<form method="post" action="<?= base_url('index/contact'); ?>">
+						<input type="text" name="nama" placeholder="Nama">
+						<input type="text" name="email" placeholder="E-mail">
+						<textarea placeholder="Message" name="pesan"></textarea>
 						<button class="site-btn">SEND NOW</button>
+					</form>
 						</ul>
 					</div>
                             </div>
@@ -120,7 +123,7 @@
 					<div class="product-item">
 						<div class="pi-pic">
 							<div class="tag-new">New</div>
-							<img src="./img/product/2.jpg" alt="">
+							<img src="<?php echo base_url() ?>/assets1/img/product/2.jpg" alt="">
 							<div class="pi-links">
 								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
@@ -135,7 +138,7 @@
 				<div class="col-lg-3 col-sm-6">
 					<div class="product-item">
 						<div class="pi-pic">
-							<img src="./img/product/5.jpg" alt="">
+							<img src="<?php echo base_url() ?>/assets1/img/product/5.jpg" alt="">
 							<div class="pi-links">
 								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
@@ -150,7 +153,7 @@
 				<div class="col-lg-3 col-sm-6">
 					<div class="product-item">
 						<div class="pi-pic">
-							<img src="./img/product/9.jpg" alt="">
+							<img src="<?php echo base_url() ?>/assets1/img/product/9.jpg" alt="">
 							<div class="pi-links">
 								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
@@ -165,7 +168,7 @@
 				<div class="col-lg-3 col-sm-6">
 					<div class="product-item">
 						<div class="pi-pic">
-							<img src="./img/product/1.jpg" alt="">
+							<img src="<?php echo base_url() ?>/assets1/img/product/1.jpg" alt="">
 							<div class="pi-links">
 								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
@@ -184,14 +187,14 @@
 
 
 	<!-- Footer section -->
-	<?php include('partials2/footer.php') ?>
+	<?php $this->load->view('templatepelanggan//footer.php') ?>
 	<!-- Footer section end -->
-	 <?php include('partials2/modal.php') ?>
+	 <?php $this->load->view('templatepelanggan//modal.php') ?>
 
 
 
 	<!--====== Javascripts & Jquery ======-->
-	<?php include('partials2/js.php') ?>
+	<?php $this->load->view('templatepelanggan//js.php') ?>
 
 	</body>
 </html>

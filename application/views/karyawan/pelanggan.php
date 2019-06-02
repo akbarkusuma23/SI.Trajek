@@ -11,6 +11,14 @@
                             <?= $this->session->flashdata('message'); ?>
 
                             <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newPelangganModal"><i class="fas fa-plus mr-2"></i>Tambah Pelanggan Baru</a>
+                            <form action="<?= base_url('karyawan/cariPelanggan'); ?>" method="post">
+                                <div class="input-group mb-3 mr-4 col-lg-3">
+                                    <input type="text" class="form-control" placeholder="Search..." name="keyword" id="keyword" autocomplete="off">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-danger" type="submit" id="tombolCari"> <i class="fas fa-search fa-sm"></i></button>
+                                    </div>
+                                </div>
+                            </form>
                             <table class="table table-hover">
                                 <thead>
                                     <tr>

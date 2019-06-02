@@ -3,16 +3,12 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon">
-                    <!-- <i class="fas fa-code"></i> -->
-                   <i> <img src="./assets/img/logo/trajek-light.png"></i>
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-code"></i>
                 </div>
-                <!-- <div class="sidebar-brand-icon">
-                    
-                </div> -->
-
-                <!-- <div class="sidebar-brand-text mx-3"> Trajek <sup>Line</sup></div> -->
+                <div class="sidebar-brand-text mx-3"> Trajek <sup>Line</sup></div>
             </a>
+
             <!-- Divider -->
             <hr class="sidebar-divider ">
 

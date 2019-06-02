@@ -15,7 +15,7 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h5 class="card-title"><?= $karyawan['nama_karyawan']; ?></h5>
+                                    <h5 class="card-title"><?= $karyawan['nama']; ?></h5>
                                     <p class="card-text"><?= $karyawan['email']; ?></p>
                                     <p class="card-text"><?= $karyawan['no_telepon']; ?></p>
                                     <p class="card-text"><?= $karyawan['alamat']; ?></p>
@@ -26,7 +26,7 @@
                     </div>
                     <td>
                         <a href="karyawan/edit" class=" btn btn-primary"><i class="fas fa-user-edit"></i> Edit Profil</a>
-                        <a href="karyawan/changepassword" class=" btn btn-warning"><i class="fas fa-key"></i> Ubah Password</a>
+                        <a href="<?php echo base_url() ?>karyawan/changepassword" class=" btn btn-warning"><i class="fas fa-key"></i> Ubah Password</a>
                     </td>
                 </div>
                 <!-- /.container-fluid -->

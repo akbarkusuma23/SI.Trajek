@@ -1,14 +1,14 @@
 <section class="footer-section">
 		<div class="container">
 			<div class="footer-logo text-center">
-				<a href="./beranda.php"><img src="./img/trajek.png" alt=""></a>
+				<a href="./beranda.php"><img src="<?php echo base_url() ?>/assets1/img/trajek.png" alt=""></a>
 			</div>
 			<div class="row" style="justify-content: center;">
 				<div class="col-lg-5">
 					<div class="footer-widget about-widget">
 						<h2>About</h2>
 						<p>Trajek Line merupakan tempat penyewaan barang terlengkap yang berdomisil di Jember. Apapun yang anda cari bisa anda temukan disini!</p>
-						<img src="img/cards.png" alt="" style="margin-top: 2px">
+						<img src="<?php echo base_url() ?>/assets1/img/cards.png" alt="" style="margin-top: 2px">
 					</div>
 				</div>
 				<div class="col-lg-7" >
@@ -36,7 +36,7 @@
 						<h2>Questions</h2>
 						<div class="fw-latest-post-widget">
 							<div class="lp-item">
-								<div class="lp-thumb set-bg" data-setbg="img/blog-thumbs/1.jpg"></div>
+								<div class="lp-thumb set-bg" data-setbg="<?php echo base_url() ?>/assets1/img/blog-thumbs/1.jpg"></div>
 								<div class="lp-content">
 									<h6>what shoes to wear</h6>
 									<span>Oct 21, 2018</span>
@@ -44,7 +44,7 @@
 								</div>
 							</div>
 							<div class="lp-item">
-								<div class="lp-thumb set-bg" data-setbg="img/blog-thumbs/2.jpg"></div>
+								<div class="lp-thumb set-bg" data-setbg="<?php echo base_url() ?>/assets1/img/blog-thumbs/2.jpg"></div>
 								<div class="lp-content">
 									<h6>trends this year</h6>
 									<span>Oct 21, 2018</span>

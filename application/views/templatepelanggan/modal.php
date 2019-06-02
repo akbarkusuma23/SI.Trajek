@@ -9,29 +9,27 @@
             <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
           </div>
           <div class="modal-body">
-            <form method="post" class="input-form" style="background-color: #f0f0f0">
+            <form method="post" action="<?= base_url('pelanggan/login'); ?>">
                 <div class="form-group">
                 <label for="kdbarang">Email</label>
-                <input type="hidden" name="email" id="email">
-                <input type="text" placeholder="Email" class="form-control form-control-line">
+                <input type="text" name="email" id="email" placeholder="Email" class="form-control form-control-line">
+                <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
               </div>
               <div class="form-group">
-                <div class="form-group">
                 <label for="kdbarang">Password</label>
-                <input type="hidden" name="password">
-                <input type="password" placeholder="* * * * *" class="form-control" style="animation: linear;" name = "password">
-
+                <input type="password" name="password" id="password" placeholder="* * * * *" class="form-control" style="animation: linear;" name = "password">
+                <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
               </div>
               <div><a href="#"><!-- <style>a:hover{
               color: red; background: transparent; text-decoration: underline;}</style> --> <h8 style="color: #F42E3E; padding-left: 140px">Lupa Password?</h8></a>
               </div>
-              <div><a href="./register.php"><!-- <style>a:hover{
+              <div><a href="<?php echo base_url() ?>index/register"><!-- <style>a:hover{
               color: red; background: transparent; text-decoration: underline;}</style> --> <h8 style="color: #F42E3E; margin-left: 100px">Belum Punya Akun? Daftar!</h8></a>
               </div>
           </div>
           <div class="modal-footer" style="padding-right: 120px">
             <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-            <a href="#" class="site-btn" style="font-size: 13pt;"><h6 style="color: #fff; padding-bottom: 5px">Masuk</h6> </a>
+            <button class="site-btn">MASUK</button>
             </form>
           </div>
         </div>

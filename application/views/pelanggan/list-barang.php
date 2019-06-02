@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <title>Trajek Line | Daftar Barang</title>
-<?php include('partials2/title.php') ?>
+<?php $this->load->view('templatepelanggan//title.php') ?>
 
 <body>
 	<!-- Page Preloder -->
-	<?php include('partials2/preloader.php') ?>
+	
+	<?php $this->load->view('templatepelanggan//preloader.php') ?>
 
 	<!-- Header section -->
-<?php include('partials2/header.php') ?>
+<?php $this->load->view('templatepelanggan//header.php') ?>
 	
 	<!-- Page info -->
 	
@@ -166,26 +167,28 @@
 
 				<div class="col-lg-9  order-1 order-lg-2 mb-5 mb-lg-0">
 					<div class="row">
+						<?php foreach ($barang as $barang){ ?>
 						<div class="col-lg-4 col-sm-6">
 							<div class="product-item">
 								<div class="pi-pic">
 									<!-- <div class="tag-sale">ON SALE</div> -->
-									<img src="./img/product/6.jpg" alt="">
+									<img height="200" width="350" src="<?php echo base_url() ?>/assets/img/barang/<?= $barang['gambar'] ?>" alt="">
 									<div class="pi-links">
 										<a href="#" class="add-card" onclick="alert('Barang telah ditambahkan')"><i class="flaticon-bag"></i><span style="font-size: 10px">TAMBAH BARANG</span></a>
 										<a href="./view-barang.php" class="wishlist-btn"><i class="flaticon-search"></i></a>
 									</div>
 								</div>
 								<div class="pi-text">
-									<h6>$35,00</h6>
-									<p>Black and White Stripes Dress</p>
+									<h6>Rp. <?= $barang['harga']; ?></h6>
+									<p><?= $barang['merk'] ?></p>
 								</div>
 							</div>
 						</div>
+						<?php } ?>
 						<div class="col-lg-4 col-sm-6">
 							<div class="product-item">
 								<div class="pi-pic">
-									<img src="./img/product/7.jpg" alt="">
+									<img src="<?php echo base_url() ?>/assets1/img/product/7.jpg" alt="">
 									<div class="pi-links">
 										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 										<a href="#" class="wishlist-btn"><i class="flaticon-search"></i></a>
@@ -200,7 +203,7 @@
 						<div class="col-lg-4 col-sm-6">
 							<div class="product-item">
 								<div class="pi-pic">
-									<img src="./img/product/8.jpg" alt="">
+									<img src="<?php echo base_url() ?>/assets1/img/product/8.jpg" alt="">
 									<div class="pi-links">
 										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 										<a href="#" class="wishlist-btn"><i class="flaticon-search"></i></a>
@@ -215,7 +218,7 @@
 						<div class="col-lg-4 col-sm-6">
 							<div class="product-item">
 								<div class="pi-pic">
-									<img src="./img/product/10.jpg" alt="">
+									<img src="<?php echo base_url() ?>/assets1/img/product/10.jpg" alt="">
 									<div class="pi-links">
 										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 										<a href="#" class="wishlist-btn"><i class="flaticon-search"></i></a>
@@ -230,7 +233,7 @@
 						<div class="col-lg-4 col-sm-6">
 							<div class="product-item">
 								<div class="pi-pic">
-									<img src="./img/product/11.jpg" alt="">
+									<img src="<?php echo base_url() ?>/assets1/img/product/11.jpg" alt="">
 									<div class="pi-links">
 										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 										<a href="#" class="wishlist-btn"><i class="flaticon-search"></i></a>
@@ -245,7 +248,7 @@
 						<div class="col-lg-4 col-sm-6">
 							<div class="product-item">
 								<div class="pi-pic">
-									<img src="./img/product/12.jpg" alt="">
+									<img src="<?php echo base_url() ?>/assets1/img/product/12.jpg" alt="">
 									<div class="pi-links">
 										<a href="#" class="add-card" onclick="alert('Barang telah ditambahkan')"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 										<a href="./view-barang-mobil.php" class="wishlist-btn"><i class="flaticon-search"></i></a>
@@ -260,7 +263,7 @@
 						<div class="col-lg-4 col-sm-6">
 							<div class="product-item">
 								<div class="pi-pic">
-									<img src="./img/product/5.jpg" alt="">
+									<img src="<?php echo base_url() ?>/assets1/img/product/5.jpg" alt="">
 									<div class="pi-links">
 										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 										<a href="#" class="wishlist-btn"><i class="flaticon-search"></i></a>
@@ -275,7 +278,7 @@
 						<div class="col-lg-4 col-sm-6">
 							<div class="product-item">
 								<div class="pi-pic">
-									<img src="./img/product/9.jpg" alt="">
+									<img src="<?php echo base_url() ?>/assets1/img/product/9.jpg" alt="">
 									<div class="pi-links">
 										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 										<a href="#" class="wishlist-btn"><i class="flaticon-search"></i></a>
@@ -290,7 +293,7 @@
 						<div class="col-lg-4 col-sm-6">
 							<div class="product-item">
 								<div class="pi-pic">
-									<img src="./img/product/1.jpg" alt="">
+									<img src="<?php echo base_url() ?>/assets1/img/product/1.jpg" alt="">
 									<div class="pi-links">
 										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 										<a href="#" class="wishlist-btn"><i class="flaticon-search"></i></a>
@@ -306,7 +309,7 @@
 							<div class="product-item">
 								<div class="pi-pic">
 									<div class="tag-new">new</div>
-									<img src="./img/product/2.jpg" alt="">
+									<img src="<?php echo base_url() ?>/assets1/img/product/2.jpg" alt="">
 									<div class="pi-links">
 										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 										<a href="#" class="wishlist-btn"><i class="flaticon-search"></i></a>
@@ -321,7 +324,7 @@
 						<div class="col-lg-4 col-sm-6">
 							<div class="product-item">
 								<div class="pi-pic">
-									<img src="./img/product/3.jpg" alt="">
+									<img src="<?php echo base_url() ?>/assets1/img/product/3.jpg" alt="">
 									<div class="pi-links">
 										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 										<a href="#" class="wishlist-btn"><i class="flaticon-search"></i></a>
@@ -336,7 +339,7 @@
 						<div class="col-lg-4 col-sm-6">
 							<div class="product-item">
 								<div class="pi-pic">
-									<img src="./img/product/4.jpg" alt="">
+									<img src="<?php echo base_url() ?>/assets1/img/product/4.jpg" alt="">
 									<div class="pi-links">
 										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 										<a href="#" class="wishlist-btn"><i class="flaticon-search"></i></a>
@@ -360,21 +363,14 @@
 
 
 	<!-- Footer section -->
-	<?php include('partials2/footer.php') ?>
+	<?php $this->load->view('templatepelanggan//footer.php') ?>
 	<!-- Footer section end -->
-	<?php include('partials2/modal.php') ?>
+	<?php $this->load->view('templatepelanggan//modal.php') ?>
 
 	
 
 	<!--====== Javascripts & Jquery ======-->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.slicknav.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.nicescroll.min.js"></script>
-	<script src="js/jquery.zoom.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/main.js"></script>
+	<?php $this->load->view('templatepelanggan//js.php') ?>
 
 	</body>
 </html>

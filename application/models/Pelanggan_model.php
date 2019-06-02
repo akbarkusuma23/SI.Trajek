@@ -14,4 +14,11 @@ class Pelanggan_model extends CI_Model
     {
         return $this->db->get_where($table, $where);
     }
+    public function cariDataPelanggan()
+    {
+        $keyword =  $_POST['keyword'];
+        $query = "SELECT * FROM tbpelanggan JOIN tbjabatan ON tbpelanggan.id_jabatan = tbjabatan.id_jabatan
+         WHERE nama_pelanggan LIKE '%$keyword%' and jabatan = 'pelanggan'";
+        return  $this->db->query($query)->result_array();
+    }
 }

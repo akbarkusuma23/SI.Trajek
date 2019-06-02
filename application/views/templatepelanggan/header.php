@@ -4,13 +4,13 @@
 				<div class="row">
 					<div class="col-lg-2 text-center text-lg-left">
 						<!-- logo -->
-						<a href="./beranda.php" class="site-logo">
-							<img src="img/trajek.png" alt="" style="margin: 12px 0px 0px ">
+						<a href="<?php echo base_url() ?>" class="site-logo">
+							<img src="<?php echo base_url() ?>/assets1/img/trajek.png" alt="" style="margin: 12px 0px 0px ">
 						</a>
 					</div>
 					<div class="col-xl-6 col-lg-5">
-						<form class="header-search-form">
-							<input type="text" placeholder="Search on trajek ....">
+						<form class="header-search-form" action="<?= base_url('index/cari'); ?>" method="post">
+							<input type="text" name="keyword" placeholder="Search on trajek ....">
 							<button><i class="flaticon-search"></i></button>
 						</form>
 					</div>
@@ -20,7 +20,18 @@
 								<!-- <button type="button" data-toggle="modal" data-target="#tambahModal">
                     Masuk
                   </button> -->
-								<a href="#tambahModal" data-toggle="modal"><i class="flaticon-profile" style="margin: 0px 10px 0px; padding-left: 30px"></i>Masuk</a>
+								
+								<?php 
+								if($this->session->userdata('email')==null){
+									?>
+									<a href="#tambahModal" data-toggle="modal"><i class="flaticon-profile" style="margin: 0px 10px 0px; padding-left: 30px"></i>Masuk</a>
+									<?php
+								}else{
+									?>
+									<a href="<?php echo base_url() ?>/admin" data-toggle="modal"><i class="flaticon-profile" style="margin: 0px 10px 0px; padding-left: 30px"></i>Profil</a>
+									<?php
+								}
+								?>
 
 							</div>
 							<div class="up-item">
@@ -38,10 +49,10 @@
 			<div class="container">
 				<!-- menu -->
 				<ul class="main-menu">
-					<li><a href="./beranda.php">Beranda</a></li>
-					<li><a href="./about.php">Tentang Kami</a></li>
-					<li><a href="./list-barang.php">Daftar Barang</a></li>
-					<li><a href="./contact.php">Kontak</a></li>
+					<li><a href="<?php echo base_url() ?>">Beranda</a></li>
+					<li><a href="<?php echo base_url() ?>/index/about">Tentang Kami</a></li>
+					<li><a href="<?php echo base_url() ?>/index/listbarang">Daftar Barang</a></li>
+					<li><a href="<?php echo base_url() ?>/index/contact">Kontak</a></li>
 					<!-- <li><a href="#">Jewelry
 						<span class="new">New</span>
 					</a></li> -->

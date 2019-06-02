@@ -17,6 +17,7 @@ class Karyawan_model extends CI_Model
 
     public function cariDataKaryawan()
     {
+        error_reporting(0);
         $keyword =  $_POST['keyword'];
         $query = "SELECT * FROM tbkaryawan join tbjabatan on tbkaryawan.id_jabatan = tbjabatan.id_jabatan 
         WHERE nama_karyawan LIKE '%$keyword%' and jabatan = 'karyawan'";

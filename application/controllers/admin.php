@@ -435,8 +435,7 @@ class Admin extends CI_Controller
         $this->load->model('Laporan_model', 'laporan');
 
         $data['id_pemesanan'] = $this->laporan->getLaporan();
-        $data['nip'] = $this->laporan->getLaporan();
-        $data['laporan'] = $this->db->get('tbtransaksi')->result_array();
+        $data['laporan'] = $this->laporan->getLaporan();
 
         $this->form_validation->set_rules('id_transaksi', 'Id Transaksi', 'required');
         $this->form_validation->set_rules('id_pemesanan', 'Id Pemesanan', 'required');
