@@ -19,6 +19,13 @@ class Index extends CI_Controller
         $this->load->view('pelanggan/about');
     }
 
+    public function viewbarang($idbarang)
+    {
+        $this->load->model('Barang_model', 'barang');
+        $data['barang'] = $this->barang->getBarangById($idbarang,'tbbarang')->result_array();
+        $this->load->view('pelanggan/view-barang',$data);
+    }
+
     public function listbarang()
     {
         # code...

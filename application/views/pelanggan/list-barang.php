@@ -176,7 +176,7 @@
 									<img height="200" width="350" src="<?php echo base_url() ?>/assets/img/barang/<?= $barang['gambar'] ?>" alt="">
 									<div class="pi-links">
 										<a href="#" class="add-card" onclick="alert('Barang telah ditambahkan')"><i class="flaticon-bag"></i><span style="font-size: 10px">TAMBAH BARANG</span></a>
-										<a href="./view-barang.php" class="wishlist-btn"><i class="flaticon-search"></i></a>
+										<a href="<?= base_url() ?>/index/viewbarang/<?= $barang['id_barang'] ?>" class="wishlist-btn"><i class="flaticon-search"></i></a>
 									</div>
 								</div>
 								<div class="pi-text">

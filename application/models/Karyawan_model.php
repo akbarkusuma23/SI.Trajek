@@ -5,7 +5,7 @@ class Karyawan_model extends CI_Model
 {
     public function getKaryawan()
     {
-        $query = "SELECT nip,nama_karyawan,email,no_telepon,alamat,foto,tbjabatan.jabatan,tanggal_buat 
+        $query = "SELECT nip,nama,email,no_telepon,alamat,foto,tbjabatan.jabatan,tanggal_buat 
         FROM tbkaryawan JOIN tbjabatan ON tbkaryawan.id_jabatan = tbjabatan.id_jabatan WHERE jabatan = 'karyawan'";
 
         return $this->db->query($query)->result_array();
