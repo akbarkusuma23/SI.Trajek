@@ -12,6 +12,12 @@ class Pemesanan_model extends CI_Model
     }
     public function getPemesananById($where, $table)
     {
-        return $this->db->get_where($table, $where);
+        $this->db->select('*');
+        $this->db->from('tbbarang');
+        $this->db->join('tbtransaksi', 'tbtransaksi.id_barang=tbbarang.id_barang');
+        $this->db->join('tbpelanggan','tbtransaksi.nik = tbpelanggan.nik');
+        $this->db->where_in('id_transaksi', $where);
+        return $this->db->get();
+        //return $this->db->get_where($table, $where);
     }
 }

@@ -18,8 +18,18 @@
                                 <?= form_error('nik', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
+                                <label for="nik">Nama Pemesan</label>
+                                <input type="text" class="form-control" id="nik" name="nik" value="<?= $pemesanan->nama; ?>" readonly>
+                                <?= form_error('nik', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+                            <div class="form-group">
                                 <label for="id_barang">Id Barang</label>
-                                <input type="text" class="form-control" id="id_barang" name="id_barang" value="<?= $pemesanan->id_barang; ?>">
+                                <input type="text" class="form-control" id="id_barang" name="id_barang" value="<?= $pemesanan->id_barang; ?>" readonly>
+                                <?= form_error('id_barang', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="nama_barang">Merk Barang</label>
+                                <input type="text" class="form-control" id="id_barang" name="id_barang" value="<?= $pemesanan->merk; ?>" readonly>
                                 <?= form_error('id_barang', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
