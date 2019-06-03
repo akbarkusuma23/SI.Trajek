@@ -61,7 +61,7 @@ class Index extends CI_Controller
         
         $this->form_validation->set_rules('nama','Nama','trim|required');
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
-        $this->form_validation->set_rules('password', 'Password', 'trim|required');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[3]|max_length[20]');
         $this->form_validation->set_rules('nomor','Nomor HP','trim|required');
         $this->form_validation->set_rules('nik','NIK','trim|required');
         $this->form_validation->set_rules('alamat','Alamat','trim|required');
@@ -80,10 +80,9 @@ class Index extends CI_Controller
 
         $this->load->library('upload', $config);
         if ($this->upload->do_upload('gambar')) {
-            $image = $this->upload->data('file_name');
-        }
-        
-        # code...
+            if($this->upload->data('max_size')>2048){
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> FILE MORE BIG !</div>');
+            }else{$image = $this->upload->data('file_name');
         $nama = $this->input->post('nama');
         $email = $this->input->post('email');
         $password = $this->input->post('password');
@@ -105,6 +104,9 @@ class Index extends CI_Controller
         $this->db->insert('tbpelanggan', $data);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Register has been Done!</div>');
         redirect('index/register');
+        }
+            
+        }
     }
 
     public function cari()

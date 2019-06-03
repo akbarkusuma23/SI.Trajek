@@ -27,8 +27,17 @@
 									<a href="#tambahModal" data-toggle="modal"><i class="flaticon-profile" style="margin: 0px 10px 0px; padding-left: 30px"></i>Masuk</a>
 									<?php
 								}else{
+									if($this->session->userdata('id_jabatan')=='1'){
+										$jabatan = 'admin';
+									}
+									elseif($this->session->userdata('id_jabatan')=='2'){
+										$jabatan = 'karyawan';
+									}
+									elseif($this->session->userdata('id_jabatan')=='3'){
+										$jabatan = 'pelanggan';
+									}
 									?>
-									<a href="<?php echo base_url() ?>/admin" data-toggle="modal"><i class="flaticon-profile" style="margin: 0px 10px 0px; padding-left: 30px"></i>Profil</a>
+									<a href="<?php echo base_url($jabatan) ?>/" data-toggle="modal"><i class="flaticon-profile" style="margin: 0px 10px 0px; padding-left: 30px"></i>Profil</a>
 									<?php
 								}
 								?>

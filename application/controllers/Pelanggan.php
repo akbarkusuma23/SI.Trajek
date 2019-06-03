@@ -44,7 +44,7 @@ class Pelanggan extends CI_Controller
                     ];
                     $this->session->set_userdata($data);
                     if ($karyawan['id_jabatan'] == 3) {
-                        redirect('pelanggan');
+                        redirect('index');
                     } else {
                         redirect('index');
                     }
