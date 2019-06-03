@@ -44,17 +44,17 @@ class Pelanggan extends CI_Controller
                     ];
                     $this->session->set_userdata($data);
                     if ($karyawan['id_jabatan'] == 3) {
-                        redirect('pelanggan');
+                        redirect('index');
                     } else {
                         redirect('index');
                     }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password!</div>');
-                    redirect('auth');
+                    redirect('index');
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">This email has not been activated!</div>');
-                redirect('auth');
+                redirect('index');
             }
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Email is not registered!</div>');

@@ -43,9 +43,7 @@
                     <!-- Column -->
                     <!-- Column -->
                     <div class="col-lg-8 col-xlg-9 col-md-7">
-                        <div class="card" style="  background: #f0f0f0;
-  border-radius: 27px;
-  overflow: hidden;">
+                        <div class="card" style="  background: #f0f0f0;border-radius: 27px;overflow: hidden;">
                             <!-- Tab panes -->
                             <div class="card-body" style="padding-top: 10px">
                                 
@@ -55,6 +53,7 @@
                                         <label class="col-md-12">Nama Lengkap</label>
                                         <div class="col-md-12">
                                             <input type="text" required="" name="nama" placeholder="Nama Lengkap" class="form-control form-control-line">
+                                            <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
                                         </div>
                                     </div>
                                     <div class="input-form">
@@ -67,6 +66,7 @@
                                         <label class="col-md-12">Password</label>
                                         <div class="col-md-12">
                                             <input type="password" required="" name="password" class="form-control form-control-line">
+                                            <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                                         </div>
                                     </div>
                                     <div class="input-form">
