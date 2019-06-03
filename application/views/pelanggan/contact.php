@@ -9,8 +9,9 @@
 	</div>
 
 	<!-- Header section -->
-		<?php $this->load->view('templatepelanggan//header.php') ?>
+		<?php $this->load->view('templatepelanggan/header.php') ?>
 	<!-- Header section end -->
+	<?php $this->load->view('templatepelanggan/menubar.php') ?>
 
 
 	<!-- Page info -->

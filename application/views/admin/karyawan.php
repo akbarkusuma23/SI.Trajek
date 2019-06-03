@@ -12,7 +12,7 @@
 
                             <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newKaryawanModal"><i class="fas fa-plus mr-2"></i>Tambah Karyawan Baru</a>
                             <form action="<?= base_url('admin/cariKaryawan'); ?>" method="post">
-                                <div class="input-group mb-3 mr-4 col-lg-3">
+                                <div class="input-group mb-3 mr-4 col-lg-3" style="margin-left: 200px">
                                     <input type="text" class="form-control" placeholder="Search..." name="keyword" id="keyword" autocomplete="off">
                                     <div class="input-group-append">
                                         <button class="btn btn-danger" type="submit" id="tombolCari"> <i class="fas fa-search fa-sm"></i></button>

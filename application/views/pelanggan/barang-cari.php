@@ -6,10 +6,11 @@
 <body>
 	<!-- Page Preloder -->
 	
-	<?php $this->load->view('templatepelanggan//preloader.php') ?>
+	<?php $this->load->view('templatepelanggan/preloader.php') ?>
 
 	<!-- Header section -->
-<?php $this->load->view('templatepelanggan//header.php') ?>
+<?php $this->load->view('templatepelanggan/header.php') ?>
+<?php $this->load->view('templatepelanggan/menubar.php') ?>
 	
 	<!-- Page info -->
 	

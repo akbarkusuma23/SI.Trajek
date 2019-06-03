@@ -50,11 +50,11 @@ class Pelanggan extends CI_Controller
                     }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password!</div>');
-                    redirect('auth');
+                    redirect('index');
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">This email has not been activated!</div>');
-                redirect('auth');
+                redirect('index');
             }
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Email is not registered!</div>');

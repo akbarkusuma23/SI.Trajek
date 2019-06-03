@@ -11,6 +11,7 @@
 	<!-- Header section -->
 	<?php include('partials2/header.php') ?>
 	<!-- Header section end -->
+	<?php $this->load->view('templatepelanggan/menubar.php') ?>
 
 
 	

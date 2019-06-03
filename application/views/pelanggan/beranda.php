@@ -8,7 +8,8 @@
 	<?php $this->load->view('templatepelanggan//preloader.php') ?>
 	<!-- Header section -->
 	<!-- Header section end -->
-	<?php $this->load->view('templatepelanggan//header.php') ?>
+	<?php $this->load->view('templatepelanggan/header.php') ?>
+	<?php $this->load->view('templatepelanggan/menubar.php') ?>
 
 
 	<!-- Hero section -->
