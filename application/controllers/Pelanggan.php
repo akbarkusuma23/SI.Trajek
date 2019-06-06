@@ -23,6 +23,7 @@ class Pelanggan extends CI_Controller
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('karyawan/index', $data);
+        // $this->load->view('pelanggan/user-profile', $data);
 	}
 	public function login()
 	{
@@ -46,19 +47,19 @@ class Pelanggan extends CI_Controller
                     if ($karyawan['id_jabatan'] == 3) {
                         redirect('index');
                     } else {
-                        redirect('index');
+                         $this->load->view('pelanggan/login');;
                     }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password!</div>');
-                    redirect('index');
+                    $this->load->view('pelanggan/login');;
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">This email has not been activated!</div>');
-                redirect('index');
+                 $this->load->view('pelanggan/login');;
             }
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Email is not registered!</div>');
-            redirect('index');
+             $this->load->view('pelanggan/login');;
         }
 	}
 

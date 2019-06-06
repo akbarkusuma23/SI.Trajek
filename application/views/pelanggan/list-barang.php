@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <title>Trajek Line | Daftar Barang</title>
-<?php $this->load->view('templatepelanggan//title.php') ?>
+<?php $this->load->view('templatepelanggan/title.php') ?>
 
 <body>
 	<!-- Page Preloder -->
