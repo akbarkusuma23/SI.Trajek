@@ -12,7 +12,7 @@
 
 
     <!-- Page info -->
-    <div class="page-top-info">
+   <!--  <div class="page-top-info">
         <div class="container">
             <h4>Category PAge</h4>
             <div class="site-pagination">
@@ -20,7 +20,7 @@
                 <a href="">Shop</a>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Page info end -->
 
 

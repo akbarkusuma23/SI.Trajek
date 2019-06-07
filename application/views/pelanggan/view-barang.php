@@ -11,7 +11,7 @@
 
 
     <!-- Page info -->
-    <div class="page-top-info">
+    <!-- <div class="page-top-info">
         <div class="container">
             <h4>Category PAge</h4>
             <div class="site-pagination">
@@ -19,7 +19,7 @@
                 <a href="">Shop</a>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Page info end -->
 
 
@@ -96,7 +96,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel">
+                        <!-- <div class="panel">
                             <div class="panel-header" id="headingThree">
                                 <button class="panel-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">shipping & Returns</button>
                             </div>
@@ -107,7 +107,7 @@
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <!-- <div class="social-sharing">
                         <a href=""><i class="fa fa-google-plus"></i></a>
