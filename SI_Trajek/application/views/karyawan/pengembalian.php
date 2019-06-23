@@ -10,9 +10,6 @@
 
                             <?= $this->session->flashdata('message'); ?>
                             <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newPengembalianModal"><i class="fas fa-plus mr-2"></i>Tambah Pengembalian Baru</a>
-
-
-
                             <div class="topbar-divider d-none d-sm-block"></div>
 
                             <table class="table table-hover">
@@ -22,6 +19,7 @@
                                         <th scope="col">ID Pengembalian</th>
                                         <th scope="col">NIP</th>
                                         <th scope="col">ID Transaksi</th>
+                                        <th scope="col">Tanggal Pengembalian</th>
                                         <th scope="col">Denda</th>
                                         <th scope="col">Action</th>
 
@@ -35,6 +33,7 @@
                                             <td><?= $p['id_pengembalian']; ?></td>
                                             <td><?= $p['nip']; ?></td>
                                             <td><?= $p['id_transaksi']; ?></td>
+                                            <td><?= $p['tanggal_kembali']; ?></td>
                                             <td><?= $p['denda']; ?></td>
                                             <td>
                                                 <a href="<?= base_url('karyawan/editpengembalian/' . $p['id_pengembalian']); ?>" class=" badge badge-success">edit</a>

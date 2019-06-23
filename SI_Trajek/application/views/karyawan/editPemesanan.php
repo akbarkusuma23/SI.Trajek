@@ -9,8 +9,8 @@
                             <?php foreach ($pemesanan as $pemesanan) ?>
                             <?= form_open_multipart('karyawan/update_pemesanan'); ?>
                             <div class="form-group">
-                                <label for="id_pemesanan">Id Pemesanan</label>
-                                <input type="text" class="form-control" id="id_pemesanan" name="id_pemesanan" value="<?= $pemesanan->id_pemesanan; ?>" readonly>
+                                <label for="id_transaksi">Id Transaksi</label>
+                                <input type="text" class="form-control" id="id_pemesanan" name="id_transaksi" value="<?= $pemesanan->id_transaksi; ?>" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="nik">NIK</label>
@@ -18,8 +18,18 @@
                                 <?= form_error('nik', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
+                                <label for="nik">Nama Pemesan</label>
+                                <input type="text" class="form-control" id="nik" name="nik" value="<?= $pemesanan->nama; ?>" readonly>
+                                <?= form_error('nik', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+                            <div class="form-group">
                                 <label for="id_barang">Id Barang</label>
-                                <input type="text" class="form-control" id="id_barang" name="id_barang" value="<?= $pemesanan->id_barang; ?>">
+                                <input type="text" class="form-control" id="id_barang" name="id_barang" value="<?= $pemesanan->id_barang; ?>" readonly>
+                                <?= form_error('id_barang', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="nama_barang">Merk Barang</label>
+                                <input type="text" class="form-control" id="id_barang" name="id_barang" value="<?= $pemesanan->merk; ?>" readonly>
                                 <?= form_error('id_barang', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
@@ -37,13 +47,23 @@
                                 <?= form_error('tanggal_pengembalian', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
-                                <label for="tipe_pembayaran">Tipe_pembayaran</label>
+                                <label for="tipe_pembayaran">Tipe Pembayaran</label>
                                 <input type="text" class="form-control" id="tipe_pembayaran" name="tipe_pembayaran" value="<?= $pemesanan->tipe_pembayaran; ?>">
                                 <?= form_error('tipe_pembayaran', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
+                            <div class="form-group">
+                                <label for="bayar">Bayar</label>
+                                <input type="text" class="form-control" id="bayar" name="bayar" value="<?= $pemesanan->bayar; ?>">
+                                <?= form_error('bayar', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="kembali">Kembali</label>
+                                <input type="text" class="form-control" id="kembali" name="kembali" value="<?= $pemesanan->kembali; ?>">
+                                <?= form_error('kembali', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
                             <div class="form-group row justify-content-end">
                                 <div class="col-sm-12">
-                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                    <button type="submit" class="btn btn-primary">Konfirmasi</button>
                                 </div>
                             </div>
                             </form>
