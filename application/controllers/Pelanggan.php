@@ -19,11 +19,11 @@ class Pelanggan extends CI_Controller
 		# code...
 		$data['title'] = 'My Profile';
         $data['karyawan'] = $this->db->get_where('tbpelanggan', ['email' => $this->session->userdata('email')])->row_array();
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('karyawan/index', $data);
-        // $this->load->view('pelanggan/user-profile', $data);
+        // $this->load->view('templates/header', $data);
+        // $this->load->view('templates/sidebar', $data);
+        // $this->load->view('templates/topbar', $data);
+        // $this->load->view('karyawan/index', $data);
+        $this->load->view('pelanggan/user-profile.php', $data);
 	}
 	public function login()
 	{
