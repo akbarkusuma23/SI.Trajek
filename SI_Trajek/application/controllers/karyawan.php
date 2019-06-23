@@ -198,9 +198,23 @@ class Karyawan extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Your profile has been DELETED!!!!</div>');
         redirect('karyawan/pelanggan');
     }
+    public function cariPelanggan()
+    {
+        $data['title'] = 'Data Pelanggan';
+        $data['karyawan'] = $this->db->get_where('tbkaryawan', ['email' => $this->session->userdata('email')])->row_array();
+
+        $this->load->model('Pelanggan_model', 'pelanggan');
+        $data['plg'] = $this->pelanggan->cariDataPelanggan();
+        $data['jabatan'] = $this->db->get('tbjabatan')->result_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('karyawan/pelanggan', $data);
+        $this->load->view('templates/footer');
+    }
     public function pemesanan()
     {
-        $data['title'] = 'Pemesanan';
+        $data['title'] = 'Transaksi';
         $data['karyawan'] = $this->db->get_where('tbkaryawan', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->model('Pemesanan_model', 'pemesanan');
@@ -209,12 +223,17 @@ class Karyawan extends CI_Controller
         // $data['nama_dp'] = $this->db->get('tbdp')->result_array();
         // $data['tanggal'] = date("d-m-Y");
 
-        $this->form_validation->set_rules('id_pemesanan', 'id_pemesanan', 'required');
+        $this->form_validation->set_rules('id_transaksi', 'id_transaksi', 'required');
         $this->form_validation->set_rules('nik', 'nik', 'required');
         $this->form_validation->set_rules('id_barang', 'id_barang', 'required');
         $this->form_validation->set_rules('tanggal_pengambilan', 'tanggal_pengambilan', 'required');
         $this->form_validation->set_rules('tanggal_pengembalian', 'tanggal_pengembalian', 'required');
         $this->form_validation->set_rules('tipe_pembayaran', 'tipe_pembayaran', 'required');
+        $this->form_validation->set_rules('konfirmasi', 'konfirmasi', 'required');
+        $this->form_validation->set_rules('status', 'status', 'required');
+        $this->form_validation->set_rules('bayar', 'bayar', 'required');
+        $this->form_validation->set_rules('kembali', 'kembali', 'required');
+        $this->form_validation->set_rules('denda', 'denda', 'required');
         // $this->form_validation->set_rules('id_dp', 'id_dp','required');
 
         if ($this->form_validation->run() == false) {
@@ -225,29 +244,32 @@ class Karyawan extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $datas = [
-                'id_pemesanan' => $this->input->post('id_pemesanan'),
+                'id_transaksi' => $this->input->post('id_transaksi'),
                 'nik' => $this->input->post('nik'),
                 'id_barang' => $this->input->post('id_barang'),
                 'tanggal_pengambilan' => $this->input->post('tanggal_pengambilan'),
                 'tanggal_pengembalian' => $this->input->post('tanggal_pengembalian'),
                 'tipe_pembayaran' => $this->input->post('tipe_pembayaran'),
-                'konfirmasi' => 'ya'
+                'konfirmasi' => 'ya',
+                'denda' => $this->input->post('denda'),
+                'bayar' => $this->input->post('bayar'),
+                'kembali' => $this->input->post('kembali'),
                 // 'id_dp' => $this->input->post('id_dp'),
             ];
 
-            $this->db->insert('tbpemesanan', $datas);
+            $this->db->insert('tbtransaksi', $datas);
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Congratulation! you account has been created!</div>');
             redirect('karyawan/pemesanan');
         }
     }
-    public function editpemesanan($id_pemesanan)
+    public function editpemesanan($id_transaksi)
     {
-        $data['title'] = "Edit Pemesanan";
+        $data['title'] = "Edit Transaksi";
         $data['karyawan'] = $this->db->get_where('tbkaryawan', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->model('Pemesanan_model', 'pemesanan');
-        $where = array('id_pemesanan' => $id_pemesanan);
-        $datas['pemesanan'] = $this->pemesanan->getPemesananById($where, 'tbpemesanan')->result();
+        $where = array('id_transaksi' => $id_transaksi);
+        $datas['pemesanan'] = $this->pemesanan->getPemesananById($where, 'tbtransaksi')->result();
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
@@ -259,27 +281,39 @@ class Karyawan extends CI_Controller
             redirect('karyawan/pemesanan');
         }
     }
+
     public function update_pemesanan()
     {
-        $data = [
-            'id_pemesanan' => $this->input->post('id_pemesanan'),
+        /*    $data = [
+            'id_transaksi' => $this->input->post('id_transaksi'),
             'nik' => $this->input->post('nik'),
             'id_barang' => $this->input->post('id_barang'),
             'tanggal_pengambilan' => $this->input->post('tanggal_pengambilan'),
             'tanggal_pengembalian' => $this->input->post('tanggal_pengembalian'),
             'tipe_pembayaran' => $this->input->post('tipe_pembayaran'),
+            'konfirmasi' => $this->input->post('konfirmasi'),
+            'denda' => $this->input->post('denda'),
+            'bayar' => $this->input->post('bayar'),
+            'kembali' => $this->input->post('kembali'),
+            'denda' => $this->input->post('denda'),
             // 'id_dp' => $this->input->post('id_dp'),
+        ]; */
+        $data = [
+            'bayar' => $this->input->post('bayar'),
+            'kembali' => $this->input->post('kembali'),
+            'konfirmasi' => 'ya',
+            'keterangan' => '2'
         ];
-        $where = array('id_pemesanan' => $this->input->post('id_pemesanan'));
+        $where = array('id_transaksi' => $this->input->post('id_transaksi'));
         $this->db->where($where);
-        $this->db->update('tbpemesanan', $data);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Your booking has been updated!</div>');
+        $this->db->update('tbtransaksi', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Your booking has been CONFIRMED!</div>');
         redirect('karyawan/pemesanan');
     }
     public function hapuspemesanan($where)
     {
-        $this->db->delete('tbpemesanan', array("id_pemesanan" => $where));
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Your booking has been DELETED!!!!</div>');
+        $this->db->delete('tbtransaksi', array("id_transaksi" => $where));
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Your booking has been REJECTED!!!!</div>');
         redirect('karyawan/pemesanan');
     }
     public function transaksi()
@@ -369,6 +403,7 @@ class Karyawan extends CI_Controller
         $this->form_validation->set_rules('id_pengembalian', 'id_pengembalian', 'required');
         $this->form_validation->set_rules('nip', 'nip', 'required');
         $this->form_validation->set_rules('id_transaksi', 'id_transaksi', 'required');
+        $this->form_validation->set_rules('tanggal_kembali', 'tanggal_kembali', 'required');
         $this->form_validation->set_rules('denda', 'denda', 'required');
 
         if ($this->form_validation->run() == false) {
@@ -413,6 +448,7 @@ class Karyawan extends CI_Controller
             'id_transaksi' => $this->input->post('id_pengembalian'),
             'nip' => $this->input->post('nip'),
             'id_transaksi' => $this->input->post('id_transaksi'),
+            'tanggal_kembali' => $this->input->post('tanggal_kembali'),
             'denda' => $this->input->post('denda'),
 
         ];

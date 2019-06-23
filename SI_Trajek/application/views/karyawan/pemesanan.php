@@ -11,11 +11,13 @@
                             <?= $this->session->flashdata('message'); ?>
 
                             <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newPemesananModal"><i class="fas fa-plus mr-2"></i>Tambah Pesanan Baru</a>
-
+                            <h6>MERAH BELUM KONFIRMASI</h6>
+                            <h6>HIJAU KONFIRMASI</h6>
+                            <h6>BIRU KEMBALI</h6>
 
                             <div class="topbar-divider d-none d-sm-block"></div>
 
-                            <table class="table table-hover">
+                            <table class="table table-hover table-responsive">
                                 <thead>
                                     <tr>
                                         <th scope="col">No</th>
@@ -26,6 +28,11 @@
                                         <th scope="col">Tanggal Pengambilan</th>
                                         <th scope="col">Tanggal Pengembalian</th>
                                         <th scope="col">Tipe Pembayaran</th>
+
+                                        <th scope="col">Keterangan</th>
+                                        <th scope="col">Bayar</th>
+                                        <th scope="col">Kembali</th>
+                                        <th scope="col">Denda</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -34,7 +41,7 @@
                                     <?php foreach ($pemesanan as $b) : ?>
                                         <tr>
                                             <th scope="row"><?= $i; ?></th>
-                                            <td><?= $b['id_pemesanan']; ?></td>
+                                            <td><?= $b['id_transaksi']; ?></td>
                                             <td><?= $b['nik']; ?></td>
                                             <td><?= $b['id_barang']; ?></td>
                                             <td><?= $b['tanggal_pesan']; ?></td>
@@ -42,9 +49,32 @@
                                             <td><?= $b['tanggal_pengembalian']; ?></td>
                                             <td><?= $b['tipe_pembayaran']; ?></td>
                                             <td>
-                                                <a href="<?= base_url('karyawan/editpemesanan/' . $b['id_pemesanan']); ?>" class=" badge badge-success">edit</a>
-                                                <a onclick="return confirm(`Anda ingin hapus?`)" href="<?= base_url('karyawan/hapuspemesanan/' . $b['id_pemesanan']); ?>" class=" badge badge-danger">hapus</a>
-                                                <a href="<?= base_url('karyawan/konfirmasipemesanan/' . $b['id_pemesanan']); ?>" class=" badge badge-primary">konfirmasi</a>
+                                                <?php if ($b['keterangan'] == '1') {
+                                                    echo 'Merah';
+                                                } elseif ($b['keterangan'] == '2') {
+                                                    echo 'Hijau';
+                                                } else {
+                                                    echo 'Biru';
+                                                }
+                                                ?>
+
+                                            </td>
+                                            <td><?= $b['bayar']; ?></td>
+                                            <td><?= $b['kembali']; ?></td>
+                                            <td><?= $b['denda']; ?></td>
+                                            <td>
+                                                <?php
+
+                                                if ($b['konfirmasi'] == 'ya') {
+                                                    echo 'terkonfirmasi';
+                                                } else {
+                                                    ?>
+                                                    <a href="<?= base_url('karyawan/editpemesanan/' . $b['id_transaksi']); ?>" class=" badge badge-success">konfirmasi</a>
+                                                    <a onclick="return confirm(`Anda ingin hapus?`)" href="<?= base_url('karyawan/hapuspemesanan/' . $b['id_transaksi']); ?>" class=" badge badge-danger">tolak</a>
+                                                <?php
+                                            }
+                                            ?>
+
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
@@ -103,6 +133,12 @@
                                             <option value="transfer bank">Transfer Bank </option>
                                         </select>
                                         <?= form_error('tipe_pembayaran', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    </div>
+                                    <div class="form-group ">
+                                        <input type="text" class="form-control form-control-user" id="bayar" name="bayar" placeholder="Bayar">
+                                    </div>
+                                    <div class="form-group ">
+                                        <input type="text" class="form-control form-control-user" id="kembali" name="kembali" placeholder="Kembali">
                                     </div>
                             </div>
                             <div class="modal-footer">

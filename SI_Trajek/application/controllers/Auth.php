@@ -8,9 +8,11 @@ class Auth extends CI_Controller
         parent::__construct();
         $this->load->library('form_validation');
     }
+
     public function index()
     {
-        if ($this->session->userdata('email')) {
+        # code...
+         if ($this->session->userdata('email')) {
             redirect('karyawan');
         }
 
@@ -72,7 +74,7 @@ class Auth extends CI_Controller
         $this->session->unset_userdata('id_jabatan');
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> You have been logged out!</div>');
-        redirect('auth');
+        redirect('index');
     }
 
     public function blocked()

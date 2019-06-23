@@ -5,13 +5,29 @@ class Pemesanan_model extends CI_Model
 {
     public function getPemesanan()
     {
-        $query = "SELECT * from tbpemesanan join tbpelanggan on tbpemesanan.nik = tbpelanggan.nik 
-        join tbbarang on tbpemesanan.id_barang = tbbarang.id_barang where konfirmasi = 'tidak'";
+        $query = "SELECT * from tbtransaksi join tbpelanggan on tbtransaksi.nik = tbpelanggan.nik 
+        join tbbarang on tbtransaksi.id_barang = tbbarang.id_barang";
 
         return $this->db->query($query)->result_array();
     }
     public function getPemesananById($where, $table)
     {
-        return $this->db->get_where($table, $where);
+        $this->db->select('*');
+        $this->db->from('tbbarang');
+        $this->db->join('tbtransaksi', 'tbtransaksi.id_barang=tbbarang.id_barang');
+        $this->db->join('tbpelanggan','tbtransaksi.nik = tbpelanggan.nik');
+        $this->db->where_in('id_transaksi', $where);
+        return $this->db->get();
+        //return $this->db->get_where($table, $where);
+    }
+    public function getPemesananByNik($where, $table)
+    {
+        $this->db->select('*');
+        $this->db->from('tbbarang');
+        $this->db->join('tbtransaksi', 'tbtransaksi.id_barang=tbbarang.id_barang');
+        $this->db->join('tbpelanggan','tbtransaksi.nik = tbpelanggan.nik');
+        $this->db->where_in('tbpelanggan.nik', $where);
+        return $this->db->get();
+        //return $this->db->get_where($table, $where);
     }
 }
