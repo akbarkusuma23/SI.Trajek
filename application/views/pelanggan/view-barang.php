@@ -44,19 +44,20 @@
                 <div class="col-lg-6 product-details">
                     <h2 class="p-title"><?= $b['merk'] ?></h2>
                     <h3 class="p-price">Rp. <?= $b['harga'] ?></h3>
-                    <h4 class="p-stock">Available: <span>In Stock</span></h4>
-                    <div class="p-rating">
+                    <h4 class="p-stock">Ketersediaan: <span>In Stock</span></h4>
+                    <!-- <div class="p-rating">
                         <i class="fa fa-star-o"></i>
                         <i class="fa fa-star-o"></i>
                         <i class="fa fa-star-o"></i>
                         <i class="fa fa-star-o"></i>
                         <i class="fa fa-star-o fa-fade"></i>
-                    </div>
-                    <div class="p-review">
+                    </div> -->
+                    <!-- <div class="p-review">
                         <a href="">3 reviews</a>|<a href="">Add your review</a>
+                    </div> -->
+                        <div align="right">
+                    <a href="#" class="site-btn" style="align-items: center;">Pesan Sekarang</a>
                     </div>
-                        
-                    <a href="#" class="site-btn">Pesan Sekarang</a>
                     <div id="accordion" class="accordion-area">
                         <div class="panel">
                             <div class="panel-header" id="headingOne">
