@@ -7,6 +7,7 @@
                     <div class="row">
                         <div class="col lg-6">
                             <?= form_error('pemesanan', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+                            <?php echo validation_errors(); ?>
 
                             <?= $this->session->flashdata('message'); ?>
 
@@ -100,8 +101,9 @@
                             <div class="modal-body">
                                 <form action="<?= base_url('karyawan/pemesanan'); ?>" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="id_pemesananan" name="id_pemesanan" placeholder="Id Pemesanan">
-                                        <?= form_error('id_pemesanan', '<small class="text-danger pl-3">', '</small>'); ?>
+                                        <!--
+                                        <input type="text" class="form-control" id="id_transaksi" name="id_transaksi" placeholder="Id Pemesanan">
+                                        <?= form_error('id_pemesanan', '<small class="text-danger pl-3">', '</small>'); ?> -->
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control" id="nik" name="nik" placeholder="NIK">
@@ -136,9 +138,11 @@
                                     </div>
                                     <div class="form-group ">
                                         <input type="text" class="form-control form-control-user" id="bayar" name="bayar" placeholder="Bayar">
+                                        <?= form_error('bayar', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group ">
                                         <input type="text" class="form-control form-control-user" id="kembali" name="kembali" placeholder="Kembali">
+                                        <?= form_error('kembali', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                             </div>
                             <div class="modal-footer">

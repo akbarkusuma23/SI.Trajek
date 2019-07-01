@@ -229,11 +229,8 @@ class Karyawan extends CI_Controller
         $this->form_validation->set_rules('tanggal_pengambilan', 'tanggal_pengambilan', 'required');
         $this->form_validation->set_rules('tanggal_pengembalian', 'tanggal_pengembalian', 'required');
         $this->form_validation->set_rules('tipe_pembayaran', 'tipe_pembayaran', 'required');
-        $this->form_validation->set_rules('konfirmasi', 'konfirmasi', 'required');
-        $this->form_validation->set_rules('status', 'status', 'required');
         $this->form_validation->set_rules('bayar', 'bayar', 'required');
         $this->form_validation->set_rules('kembali', 'kembali', 'required');
-        $this->form_validation->set_rules('denda', 'denda', 'required');
         // $this->form_validation->set_rules('id_dp', 'id_dp','required');
 
         if ($this->form_validation->run() == false) {
@@ -243,17 +240,21 @@ class Karyawan extends CI_Controller
             $this->load->view('karyawan/pemesanan', $data);
             $this->load->view('templates/footer');
         } else {
+            kodeotomatis();
+            
             $datas = [
-                'id_transaksi' => $this->input->post('id_transaksi'),
+                'id_transaksi' => $id_transaksi,
                 'nik' => $this->input->post('nik'),
                 'id_barang' => $this->input->post('id_barang'),
                 'tanggal_pengambilan' => $this->input->post('tanggal_pengambilan'),
                 'tanggal_pengembalian' => $this->input->post('tanggal_pengembalian'),
                 'tipe_pembayaran' => $this->input->post('tipe_pembayaran'),
-                'konfirmasi' => 'ya',
-                'denda' => $this->input->post('denda'),
+                'konfirmasi' => 'tidak',
+                'keterangan' => 1,
+                'uangmuka' => 1,
                 'bayar' => $this->input->post('bayar'),
                 'kembali' => $this->input->post('kembali'),
+                'denda' => 0,
                 // 'id_dp' => $this->input->post('id_dp'),
             ];
 
@@ -463,5 +464,15 @@ class Karyawan extends CI_Controller
         $this->db->delete('tbpengembalian', array("id_pengembalian" => $where));
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Your return has been DELETED!!!!</div>');
         redirect('karyawan/pengembalian');
+    }
+    public function kodeotomatis()
+    {
+        # code...
+        $query = $this->db->query("select id_transaksi from tbtransaksi order by id_transaksi DESC limit 1");
+        $simpan = $query->result_array();
+        $id = (int) substr($simpan['id_transaksi'], 2);
+        $id++;
+        $id_transaksi = "TR".sprintf("%03s",$id);
+        return $id_transaksi;
     }
 }
