@@ -11,7 +11,7 @@
 
 
     <!-- Page info -->
-    <!-- <div class="page-top-info">
+    <div class="page-top-info">
         <div class="container">
             <h4>Category PAge</h4>
             <div class="site-pagination">
@@ -19,7 +19,7 @@
                 <a href="">Shop</a>
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- Page info end -->
 
 
@@ -42,22 +42,33 @@
                     </div>
                 </div>
                 <div class="col-lg-6 product-details">
-                    <h2 class="p-title"><?= $b['merk'] ?></h2>
-                    <h3 class="p-price">Rp. <?= $b['harga'] ?></h3>
-                    <h4 class="p-stock">Ketersediaan: <span>In Stock</span></h4>
-                    <!-- <div class="p-rating">
+                    <form action="<?php echo base_url('index/cart')?>" method="post">
+                    <h2 class="p-title"><?= $b['merk'] ?></h2><input type="" name="merk" value="<?= $b['merk'] ?>" >
+                    <h3 class="p-price">Rp. <?= $b['harga'] ?> / jam</h3><input type="" name="harga" value="<?= $b['harga'] ?>" ><input type="" name="gambar" value="<?= $b['gambar'] ?>">
+                    <h3 class="p-price">Uang Muka Rp. <?= $b['harga']*(60/100) ?></h3>
+                    <h4 class="p-stock">Available: <span>In Stock</span></h4>
+                    <div class="p-rating">
                         <i class="fa fa-star-o"></i>
                         <i class="fa fa-star-o"></i>
                         <i class="fa fa-star-o"></i>
                         <i class="fa fa-star-o"></i>
                         <i class="fa fa-star-o fa-fade"></i>
-                    </div> -->
-                    <!-- <div class="p-review">
-                        <a href="">3 reviews</a>|<a href="">Add your review</a>
-                    </div> -->
-                        <div align="right">
-                    <a href="#" class="site-btn" style="align-items: center;">Pesan Sekarang</a>
                     </div>
+                    <div class="p-review">
+                        <a href="">3 reviews</a>|<a href="">Add your review</a>
+                    </div>
+                    <?php if($this->session->userdata('nik')!=null){
+                        ?>
+                            <input type="" name="kodebarang" value="<?= $b['id_barang'] ?>">
+                        <button class="site-btn">PESAN SEKARANG</button>
+                        </form>
+                        <?php
+                    }else{
+                        ?>
+                        <a href="#tambahModal" data-toggle="modal" class="site-btn">Pesan Login Dahulu</a>
+                        <?php
+                    } ?>    
+                    
                     <div id="accordion" class="accordion-area">
                         <div class="panel">
                             <div class="panel-header" id="headingOne">
@@ -97,7 +108,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="panel">
+                        <div class="panel">
                             <div class="panel-header" id="headingThree">
                                 <button class="panel-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">shipping & Returns</button>
                             </div>
@@ -108,7 +119,7 @@
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                     <!-- <div class="social-sharing">
                         <a href=""><i class="fa fa-google-plus"></i></a>
@@ -132,7 +143,7 @@
     <!-- Footer section -->
     <?php $this->load->view('templatepelanggan/footer.php') ?>
     <!-- Footer section end -->
-
+    <?php $this->load->view('templatepelanggan//modal.php') ?>
 
 
     <!--====== Javascripts & Jquery ======-->
