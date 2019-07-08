@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zxx">
+<title>Trajek Line | Profil</title>
 <?php $this->load->view('templatepelanggan/title.php') ?>
 
 <body>
