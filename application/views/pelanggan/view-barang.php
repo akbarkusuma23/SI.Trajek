@@ -11,7 +11,7 @@
 
 
     <!-- Page info -->
-    <div class="page-top-info">
+    <!-- <div class="page-top-info">
         <div class="container">
             <h4>Category PAge</h4>
             <div class="site-pagination">
@@ -19,7 +19,7 @@
                 <a href="">Shop</a>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Page info end -->
 
 
@@ -43,8 +43,8 @@
                 </div>
                 <div class="col-lg-6 product-details">
                     <form action="<?php echo base_url('index/cart')?>" method="post">
-                    <h2 class="p-title"><?= $b['merk'] ?></h2><input type="" name="merk" value="<?= $b['merk'] ?>" >
-                    <h3 class="p-price">Rp. <?= $b['harga'] ?> / jam</h3><input type="" name="harga" value="<?= $b['harga'] ?>" ><input type="" name="gambar" value="<?= $b['gambar'] ?>">
+                    <h2 class="p-title"><?= $b['merk'] ?></h2><input type="hidden" name="merk" value="<?= $b['merk'] ?>" >
+                    <h3 class="p-price">Rp. <?= $b['harga'] ?> / jam</h3><input type="hidden" name="harga" value="<?= $b['harga'] ?>" ><input type="hidden" name="gambar" value="<?= $b['gambar'] ?>">
                     <h3 class="p-price">Uang Muka Rp. <?= $b['harga']*(60/100) ?></h3>
                     <h4 class="p-stock">Available: <span>In Stock</span></h4>
                     <div class="p-rating">
@@ -59,7 +59,7 @@
                     </div>
                     <?php if($this->session->userdata('nik')!=null){
                         ?>
-                            <input type="" name="kodebarang" value="<?= $b['id_barang'] ?>">
+                            <input type="hidden" name="kodebarang" value="<?= $b['id_barang'] ?>">
                         <button class="site-btn">PESAN SEKARANG</button>
                         </form>
                         <?php
@@ -108,16 +108,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel">
+                        <!-- <div class="panel">
                             <div class="panel-header" id="headingThree">
                                 <button class="panel-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">shipping & Returns</button>
-                            </div>
-                            <div id="collapse3" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                            </div> -->
+                            <!-- <div id="collapse3" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                                 <div class="panel-body">
                                     <h4>7 Days Returns</h4>
                                     <p>Cash on Delivery Available<br>Home Delivery <span>3 - 4 days</span></p>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
