@@ -24,7 +24,7 @@
 								<?php 
 								if($this->session->userdata('email')==null){
 									?>
-									<a href="#tambahModal" data-toggle="modal"><i class="flaticon-profile" style="margin: 0px 10px 0px; padding-left: 30px"></i>Masuk</a>
+									<a href="<?php echo base_url ('pelanggan/login') ?>" data-toggle="modal"><i class="flaticon-profile" style="margin: 0px 10px 0px; padding-left: 30px"></i>Masuk</a>
 									<?php
 								}else{
 									if($this->session->userdata('id_jabatan')=='1'){
@@ -38,6 +38,7 @@
 									}
 									?>
 									<a href="<?php echo base_url ('pelanggan/profil') ?> " data-toggle="modal"><i class="flaticon-profile" style="margin: 0px 10px 0px; padding-left: 30px"></i>Profil</a>
+									<a href="<?php echo base_url ('auth/logout') ?>"><i class="flaticon-logout" style="margin: 0px 10px 0px; padding-left: 30px"></i>Logout</a>
 									<!-- <?php //echo base_url($jabatan) ?>/ -->
 									<?php
 								}
